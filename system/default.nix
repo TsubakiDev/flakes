@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../common/
-    ../services/
+    ../common
+    ../services
   ];
 
   # Set your time zone.

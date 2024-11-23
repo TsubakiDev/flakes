@@ -66,10 +66,6 @@
       plugins = with pkgs.vimPlugins; [ vim-nix ];
     };
 
-    steam = {
-      enable = true;
-    };
-
     git = {
       enable = true;
       userName = "TsubakiDev";
