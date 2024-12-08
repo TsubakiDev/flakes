@@ -1,58 +1,57 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tsubaki";
   home.homeDirectory = "/home/tsubaki";
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   home.sessionVariables = {
     EDITOR = "nvim";
     MOZ_USE_XINPUT2 = "1";
+    XMODIFIERS = "@im=fcitx";
   };
 
   home.shellAliases = {
-    # System
     nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
     nfu = "sudo nix flake update";
-
-    # Git
-    gcwm = "git commit -m";
-    gpush = "git push";
-    gpull = "git pull";
-    grebase = "git rebase";
+    g = "git";
   };
 
   home.packages = with pkgs; [
-    # Tools
     nix-output-monitor
     fastfetch
     nixfmt-rfc-style
-
-    # Utility Softwares
     bitwarden-desktop
-    libreoffice-fresh
+    wpsoffice-cn
     yubikey-manager-qt
-
-    # Network Analyzer
     wireshark
-
-    # Media
     vlc
     cider
-
-    # Programming Languages
     rustup
     go
-
-    # IM
     telegram-desktop
     qq
-
-    # Games
     osu-lazer-bin
+    steam
   ];
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-material-color
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
 
   programs = {
     vscode = {
