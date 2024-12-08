@@ -1,7 +1,8 @@
 { ... }:
 {
-    imports = [
-        ./dae
-        ./printing
-    ];
+  imports = [
+    ./dae
+    ./printing
+    ./mihomo
+  ];
 }

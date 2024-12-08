@@ -1,13 +1,12 @@
 { ... }:
 {
-    imports = [
-        ./boot
-        ./display
-        ./fonts
-        ./i18n
-        ./input
-        ./networking
-        ./settings
-        ./sound
-    ];
+  imports = [
+    ./boot
+    ./display
+    ./fonts
+    ./input
+    ./networking
+    ./settings
+    ./sound
+  ];
 }

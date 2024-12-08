@@ -32,9 +32,11 @@
 
     # Utility Softwares
     bitwarden-desktop
-    clash-verge-rev
     libreoffice-fresh
     yubikey-manager-qt
+
+    # Network Analyzer
+    wireshark
 
     # Media
     vlc
@@ -46,6 +48,7 @@
 
     # IM
     telegram-desktop
+    qq
 
     # Games
     osu-lazer-bin
@@ -55,10 +58,6 @@
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
-    };
-
-    firefox = {
-      enable = true;
     };
 
     neovim = {

@@ -1,21 +1,12 @@
 { pkgs, ... }:
 {
-  # Bootloader.
   boot = {
-    # Use latest linux-xanmod kernel.
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     loader = {
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-      };
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-
-    # Add support for NTFS
-    supportedFilesystems = [ "ntfs" ];
 
     tmp = {
       useTmpfs = true;

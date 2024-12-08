@@ -9,18 +9,22 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   outputs =
     {
       self,
-      nixpkgs,
+      flake-utils,
       home-manager,
       aagl,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./system/default.nix
           ./system/laptop/hardware.nix
