@@ -23,13 +23,29 @@
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./system/default.nix
-          ./system/laptop/hardware.nix
+          ./machine/desktop/configuration.nix
+          ./machine/desktop/hardware.nix
           home-manager.nixosModules.home-manager
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
+        ];
+
+        {
+          imports = [ aagl.nixosModules.default ];
+          nix.settings = aagl.nixConfig;
+
+          programs.anime-game-launcher.enable = true;
+          programs.honkers-railway-launcher.enable = true;
+        }
+      };
+
+      nixosConfigurations.mgtown = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./machine/mgtown/configuration.nix
+          ./machine/mgtown/hardware.nix
         ];
       };
     };
