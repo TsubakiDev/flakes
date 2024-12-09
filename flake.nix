@@ -31,6 +31,8 @@
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
         ];
 
+          inputs.zen-browser.packages."${system}".specific;
+
         {
           imports = [ aagl.nixosModules.default ];
           nix.settings = aagl.nixConfig;
