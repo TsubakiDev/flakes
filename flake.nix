@@ -14,7 +14,6 @@
   outputs =
     {
       self,
-      flake-utils,
       home-manager,
       aagl,
       ...
