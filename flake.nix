@@ -29,17 +29,15 @@
           ./machine/desktop/hardware.nix
           home-manager.nixosModules.home-manager
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
-        ];
 
-          inputs.zen-browser.packages."${system}".specific;
-
-        {
+         {
           imports = [ aagl.nixosModules.default ];
           nix.settings = aagl.nixConfig;
 
           programs.anime-game-launcher.enable = true;
           programs.honkers-railway-launcher.enable = true;
-        }
+         }
+        ];
       };
 
       nixosConfigurations.mgtown = nixpkgs.lib.nixosSystem {
