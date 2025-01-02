@@ -7,6 +7,7 @@
       iosevka
       noto-fonts
       noto-fonts-cjk-sans
+      wqy-microhei
     ];
   };
 }
