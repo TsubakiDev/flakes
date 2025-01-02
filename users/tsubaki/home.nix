@@ -17,9 +17,7 @@
   };
 
   home.shellAliases = {
-    nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
-    nfu = "sudo nix flake update";
-    g = "git";
+    updateSystem = "sudo nix flake update && sudo bash -c 'nixos-rebuild switch |& nom'";
   };
 
   home.packages = with pkgs; [
@@ -27,7 +25,8 @@
     fastfetch
     nixfmt-rfc-style
     bitwarden-desktop
-    wpsoffice-cn
+    clash-nyanpasu
+    proxychains-ng
     yubikey-manager-qt
     wireshark
     vlc
@@ -39,17 +38,6 @@
     osu-lazer-bin
     steam
   ];
-
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-material-color
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
 
   programs = {
     vscode = {

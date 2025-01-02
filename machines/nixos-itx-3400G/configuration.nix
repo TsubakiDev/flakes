@@ -21,6 +21,17 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-material-color
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
+
   users.users.tsubaki = {
     isNormalUser = true;
     description = "tsubaki";
