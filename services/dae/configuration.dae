@@ -40,7 +40,7 @@ routing {
   pname(mihomo) -> must_direct
 
   # 需要指定代理的网站或进程
-  !qname(geosite:cn) && !domain(geosite:cn) -> clash
+  !domain(geosite:cn) -> clash
 
   # 需要指定直连的网站或进程
   # domain(suffix: cm.steampowered.com) -> direct
