@@ -25,8 +25,8 @@
       nixosConfigurations.nixos-itx-3400G = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./machine/nixos-itx-3400G/configuration.nix
-          ./machine/nixos-itx-3400G/hardware.nix
+          ./machines/nixos-itx-3400G/configuration.nix
+          ./machines/nixos-itx-3400G/hardware.nix
           home-manager.nixosModules.home-manager
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
 
@@ -43,8 +43,8 @@
       nixosConfigurations.mgtown = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./machine/mgtown/configuration.nix
-          ./machine/mgtown/hardware.nix
+          ./machines/mgtown/configuration.nix
+          ./machines/mgtown/hardware.nix
         ];
       };
     };
