@@ -4,7 +4,7 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      MapleMono-ttf
+      maple-mono-NF
       noto-fonts
       noto-fonts-cjk-sans
     ];
