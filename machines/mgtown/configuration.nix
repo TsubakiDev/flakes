@@ -26,9 +26,7 @@
         "vm.dirty_background_ratio" = "5";
         "net.core.netdev_max_backlog" = "262144";
         "net.core.rmem_default" = "31457280";
-        "net.core.rmem_max" = "67108864";
         "net.core.wmem_default" = "31457280";
-        "net.core.wmem_max" = "67108864";
         "net.core.somaxconn" = "65535";
         "net.core.optmem_max" = "25165824";
         "net.ipv4.neigh.default.gc_thresh1" = "4096";
@@ -148,33 +146,9 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-
-    settings = {
-      mysqld = {
-        port = 3306;
-        bind-address = "127.0.0.1";
-
-        tmp_table_size = "1024M";
-        innodb_buffer_pool_size = "1024M";
-        read_buffer_size = "2M";
-        read_rnd_buffer_size = "1024K";
-        join_buffer_size = "4M";
-        thread_stack = "384K";
-        binlog_cache_size = "192K";
-        thread_cache_size = 192;
-        table_open_cache = 1024;
-        max_connections = 400;
-        key_buffer_size = "512M";
-      };
-    };
-  };
-
   services.openssh.enable = true;
-  services.openssh.permitRootLogin = "no";
-  services.openssh.passwordAuthentication = false;
+  services.openssh.permitRootLogin = "yes";
+  services.openssh.passwordAuthentication = true;
 
   nix.settings = {
     experimental-features = [
@@ -193,9 +167,8 @@
 
   environment.systemPackages = with pkgs; [
     git
-    unzip
     fastfetch
-    tmux
+    screen
   ];
 
   programs.neovim = {
