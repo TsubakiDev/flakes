@@ -5,6 +5,8 @@
     ../../common
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "nixos-itx-3400G";
 
   time.timeZone = "Asia/Shanghai";
