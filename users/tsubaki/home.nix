@@ -37,7 +37,7 @@
     obs-studio
     telegram-desktop
     jetbrains.idea-community-bin
-    osu-lazer-bin
+    #osu-lazer-bin
     qq
     steam
     gdlauncher-carbon
