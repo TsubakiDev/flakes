@@ -42,6 +42,7 @@
     steam
     wezterm
     gdlauncher-carbon
+    thunderbird
   ];
 
   programs = {
