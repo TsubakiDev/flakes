@@ -35,6 +35,7 @@
     go
     obs-studio
     telegram-desktop
+    osu-lazer
     qq
     steam
   ];
