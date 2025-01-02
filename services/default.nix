@@ -1,8 +1,0 @@
-{ ... }:
-{
-  imports = [
-    ./dae
-    ./printing
-    ./mihomo
-  ];
-}

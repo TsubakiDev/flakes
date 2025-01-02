@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ../common
-    ../services
+    ../../common
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -36,7 +35,6 @@
   programs = {
     fish.enable = true;
     dconf.enable = true;
-    gnupg.agent.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

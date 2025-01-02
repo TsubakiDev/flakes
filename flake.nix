@@ -22,21 +22,21 @@
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos-itx-3400G = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./machine/desktop/configuration.nix
-          ./machine/desktop/hardware.nix
+          ./machine/nixos-itx-3400G/configuration.nix
+          ./machine/nixos-itx-3400G/hardware.nix
           home-manager.nixosModules.home-manager
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
 
-         {
-          imports = [ aagl.nixosModules.default ];
-          nix.settings = aagl.nixConfig;
+          {
+            imports = [ aagl.nixosModules.default ];
+            nix.settings = aagl.nixConfig;
 
-          programs.anime-game-launcher.enable = true;
-          programs.honkers-railway-launcher.enable = true;
-         }
+            programs.anime-game-launcher.enable = true;
+            programs.honkers-railway-launcher.enable = true;
+          }
         ];
       };
 

@@ -12,7 +12,7 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
+    dates = "daily";
+    options = "--delete-older-than 1d";
   };
 }
