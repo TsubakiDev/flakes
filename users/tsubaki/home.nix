@@ -45,6 +45,10 @@
       package = pkgs.vscode.fhs;
     };
 
+    firefox = {
+      enable = true;
+    };
+
     neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [ vim-nix ];
