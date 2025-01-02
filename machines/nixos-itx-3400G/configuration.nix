@@ -51,6 +51,7 @@
   programs = {
     fish.enable = true;
     dconf.enable = true;
+    gamemode.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

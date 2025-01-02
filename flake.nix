@@ -24,6 +24,11 @@
     {
       nixosConfigurations.nixos-itx-3400G = nixpkgs.lib.nixosSystem {
         inherit system;
+
+        specialArgs = {
+          inherit inputs;
+        };
+      
         modules = [
           ./machines/nixos-itx-3400G/configuration.nix
           ./machines/nixos-itx-3400G/hardware.nix
