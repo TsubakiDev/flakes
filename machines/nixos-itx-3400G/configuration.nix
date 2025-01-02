@@ -32,7 +32,7 @@
     fcitx5.addons = with pkgs; [
       fcitx5-material-color
       fcitx5-chinese-addons
-      fcitx5-moze
+      fcitx5-mozc
       fcitx5-gtk
     ];
   };
