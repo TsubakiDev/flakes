@@ -15,6 +15,7 @@
     {
       self,
       home-manager,
+      nixpkgs,
       aagl,
       ...
     }@inputs:
