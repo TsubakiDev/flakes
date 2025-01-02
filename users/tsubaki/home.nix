@@ -35,9 +35,11 @@
     go
     obs-studio
     telegram-desktop
+    jetbrains.idea-community-bin
     osu-lazer
     qq
     steam
+    gdlauncher-carbon
   ];
 
   programs = {
