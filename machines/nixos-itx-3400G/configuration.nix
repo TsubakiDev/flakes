@@ -5,6 +5,8 @@
     ../../common
   ];
 
+  networking.hostName = "nixos-itx-3400G";
+
   time.timeZone = "Asia/Shanghai";
 
   i18n.defaultLocale = "en_US.UTF-8";
