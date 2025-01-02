@@ -37,7 +37,6 @@
     qq
     osu-lazer-bin
     steam
-    gdlauncher-carbon
   ];
 
   programs = {
