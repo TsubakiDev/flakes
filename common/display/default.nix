@@ -20,6 +20,6 @@
     iagno # go game
     hitori # sudoku game
     atomix # puzzle game
-    # gnome-terminal
+    gnome-terminal
   ]);
 }

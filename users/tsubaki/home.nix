@@ -43,6 +43,7 @@
     wezterm
     gdlauncher-carbon
     thunderbird
+    yazi
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
