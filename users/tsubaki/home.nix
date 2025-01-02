@@ -18,6 +18,7 @@
 
   home.shellAliases = {
     updateSystem = "sudo nix flake update && sudo bash -c 'nixos-rebuild switch |& nom'";
+    r = "nixpkgs-review pr";
   };
 
   home.packages = with pkgs; [
