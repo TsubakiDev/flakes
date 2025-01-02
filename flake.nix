@@ -30,13 +30,13 @@
           home-manager.nixosModules.home-manager
           { home-manager.users.tsubaki = import ./users/tsubaki/home.nix; }
 
-          #{
-          #  imports = [ aagl.nixosModules.default ];
-          #  nix.settings = aagl.nixConfig;
+          {
+            imports = [ aagl.nixosModules.default ];
+            nix.settings = aagl.nixConfig;
 
-          #  programs.anime-game-launcher.enable = true;
-          #  programs.honkers-railway-launcher.enable = true;
-          #}
+            programs.anime-game-launcher.enable = true;
+            programs.honkers-railway-launcher.enable = true;
+          }
         ];
       };
 

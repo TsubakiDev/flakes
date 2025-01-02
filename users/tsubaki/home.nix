@@ -37,9 +37,10 @@
     obs-studio
     telegram-desktop
     jetbrains.idea-community-bin
-    #osu-lazer-bin
+    osu-lazer-bin
     qq
     steam
+    wezterm
     gdlauncher-carbon
   ];
 
@@ -65,10 +66,6 @@
     };
 
     fish = {
-      enable = true;
-    };
-
-    wezterm = {
       enable = true;
     };
 
