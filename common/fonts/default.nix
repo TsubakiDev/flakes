@@ -4,10 +4,9 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      iosevka
+      maple-font
       noto-fonts
       noto-fonts-cjk-sans
-      wqy-microhei
     ];
   };
 }
