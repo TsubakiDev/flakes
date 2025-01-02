@@ -33,9 +33,9 @@
     cider
     rustup
     go
+    obs-studio
     telegram-desktop
     qq
-    osu-lazer-bin
     steam
   ];
 
