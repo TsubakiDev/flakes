@@ -2,7 +2,7 @@
 {
   imports = [
     ./boot
-    ./display
+    ./display/gnome
     ./fonts
     ./networking
     ./settings
