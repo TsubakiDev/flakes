@@ -52,5 +52,13 @@
           ./machines/mgtown/hardware.nix
         ];
       };
+
+      nixosConfigurations.blogging-server = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./machines/blogging-server/configuration.nix
+          ./machines/blogging-server/hardware.nix
+        ];
+      };
     };
 }
