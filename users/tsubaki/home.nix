@@ -45,6 +45,7 @@
     gdlauncher-carbon
     thunderbird
     yazi
+    nodejs_23
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
