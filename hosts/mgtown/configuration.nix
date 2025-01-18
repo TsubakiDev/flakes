@@ -45,7 +45,7 @@
   networking.firewall = {
     enable = true;
     allowPing = false;
-    allowedTCPPorts = [ 25565 22255 ];
+    allowedTCPPorts = [ 25565 ];
     allowedUDPPorts = [ 19132 ];
   };
 
@@ -68,8 +68,8 @@
   };
 
   services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
-  services.openssh.passwordAuthentication = true;
+  services.openssh.settings.PermitRootLogin = "yes";
+  services.openssh.settings.PasswordAuthentication = true;
 
   nix.settings = {
     experimental-features = [
@@ -82,8 +82,8 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
+    dates = "daily";
+    options = "--delete-older-than 1d";
   };
 
   environment.systemPackages = with pkgs; [
