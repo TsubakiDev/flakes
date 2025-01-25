@@ -14,6 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -21,6 +25,7 @@
       home-manager,
       nixpkgs,
       aagl,
+      lix-module,
       ...
     } @inputs:
     let
@@ -45,6 +50,8 @@
               programs.anime-game-launcher.enable = true;
               programs.honkers-railway-launcher.enable = true;
             }
+
+            lix-module.nixosModules.default
           ];
 
           specialArgs = {
@@ -68,6 +75,8 @@
               programs.anime-game-launcher.enable = true;
               programs.honkers-railway-launcher.enable = true;
             }
+
+            lix-module.nixosModules.default
           ];
 
           specialArgs = {
