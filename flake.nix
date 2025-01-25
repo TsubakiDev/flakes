@@ -26,7 +26,7 @@
       aagl,
       lix-module,
       ...
-    } @inputs:
+    }@inputs:
     let
       system = "x86_64-linux";
       homeManagerModule = import ./modules/home-manager;
@@ -38,7 +38,8 @@
           modules = [
             ./hosts/firefly
 
-            home-manager.nixosModules.home-manager {
+            home-manager.nixosModules.home-manager
+            {
               home-manager.users.tsubaki = homeManagerModule;
             }
 
@@ -63,7 +64,8 @@
           modules = [
             ./hosts/sparkle
 
-            home-manager.nixosModules.home-manager {
+            home-manager.nixosModules.home-manager
+            {
               home-manager.users.tsubaki = homeManagerModule;
             }
 

@@ -1,4 +1,4 @@
-{ 
+{
   pkgs,
   lib,
   ...
@@ -30,7 +30,10 @@
       isNormalUser = true;
       description = "TsubakiDev's account";
       uid = 1001;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [
       ];
     };

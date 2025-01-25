@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowUnfree = true;
 
   home.username = "tsubaki";
@@ -46,14 +47,14 @@
     osu-lazer
     discord
     zenith
-    (pkgs.callPackage ../../packages/gdlauncher-carbon-beta.nix {})
+    (pkgs.callPackage ../../packages/gdlauncher-carbon-beta.nix { })
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
-      local wezterm = require 'wezterm'
-      local config = wezterm.config_builder()
-      config.front_end = "WebGpu"
-      return config
+    local wezterm = require 'wezterm'
+    local config = wezterm.config_builder()
+    config.front_end = "WebGpu"
+    return config
   '';
 
   programs = {

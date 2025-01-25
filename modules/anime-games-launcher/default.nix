@@ -1,7 +1,8 @@
-{ 
+{
   inputs,
-  ... 
-}: {
+  ...
+}:
+{
   imports = [
     inputs.aagl.nixosModules.default
   ];
