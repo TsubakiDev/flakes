@@ -39,13 +39,14 @@
     qq
     steam
     wezterm
-    gdlauncher-carbon
+    #gdlauncher-carbon
     thunderbird
     yazi
     nodejs_23
     osu-lazer
     discord
     zenith
+    (pkgs.callPackages ../..packages/gdlauncher-carbon-beta.nix {})
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
