@@ -46,7 +46,7 @@
     osu-lazer
     discord
     zenith
-    (pkgs.callPackages ../..packages/gdlauncher-carbon-beta.nix {})
+    (pkgs.callPackage ../../packages/gdlauncher-carbon-beta.nix {})
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
