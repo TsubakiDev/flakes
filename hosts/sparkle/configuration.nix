@@ -5,7 +5,7 @@
 }: {
   imports = [
     ../common
-    ../services
+    ../../services
   ];
 
   nixpkgs.config.allowUnfree = true;
