@@ -13,7 +13,7 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
   outputs =
     {
@@ -25,18 +25,53 @@
     } @inputs:
     let
       system = "x86_64-linux";
+      homeManagerModule = import ./modules/home-manager;
     in
     {
-      homeManagerModule = import ./modules/home-manager;
-      animeGamesLauncherModule = import ./modules/anime-games-launcher;
-
       nixosConfigurations = {
         # My personal notebook
         firefly = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts/firefly ];
+          modules = [
+            ./hosts/firefly
+
+            home-manager.nixosModules.home-manager {
+              home-manager.users.tsubaki = homeManagerModule;
+            }
+
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig;
+
+              programs.anime-game-launcher.enable = true;
+              programs.honkers-railway-launcher.enable = true;
+            }
+          ];
 
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs;
+          };
+        };
+
+        # iTX host
+        sparkle = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/sparkle
+
+            home-manager.nixosModules.home-manager {
+              home-manager.users.tsubaki = homeManagerModule;
+            }
+
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig;
+
+              programs.anime-game-launcher.enable = true;
+              programs.honkers-railway-launcher.enable = true;
+            }
+          ];
+
+          specialArgs = {
+            inherit inputs;
           };
         };
 

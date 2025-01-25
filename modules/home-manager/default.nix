@@ -36,7 +36,6 @@
     obs-studio
     telegram-desktop
     jetbrains.idea-community-bin
-    osu-lazer-bin
     qq
     steam
     wezterm
@@ -44,6 +43,9 @@
     thunderbird
     yazi
     nodejs_23
+    osu-lazer
+    discord
+    zenith
   ];
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
