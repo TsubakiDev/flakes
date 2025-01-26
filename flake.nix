@@ -29,7 +29,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      homeManagerModule = import ./modules/home-manager;
+      homeManagerModule = import ./home;
     in
     {
       nixosConfigurations = {
