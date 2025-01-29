@@ -1,12 +1,20 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
+let
+  homeFile = import ../../home/tsubaki;
+in
 {
   imports = [
     ../common
     ../../services
+    inputs.home-manager.nixosModules.home-manager
+    {
+      home-manager.users.tsubaki = homeFile;
+    }
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -29,17 +37,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-material-color
-      fcitx5-rime
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
-
   users.users.tsubaki = {
     isNormalUser = true;
     description = "tsubaki";
@@ -48,13 +45,19 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.fish;
   };
 
   programs = {
     fish.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
+    bash.interactiveShellInit = ''
+        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+        then
+          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        fi
+      '';
   };
 
   environment.systemPackages = with pkgs; [

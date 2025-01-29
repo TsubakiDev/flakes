@@ -26,29 +26,37 @@
     fastfetch
     nixfmt-rfc-style
     bitwarden-desktop
-    clash-nyanpasu
-    proxychains-ng
     yubikey-manager-qt
     wireshark
     vlc
-    cider
+    cider-2
     rustup
     go
     obs-studio
     telegram-desktop
     jetbrains.idea-community-bin
     qq
-    steam
     wezterm
-    #gdlauncher-carbon
+    gdlauncher-carbon
     thunderbird
     yazi
     nodejs_23
-    osu-lazer
+    osu-lazer-bin
     discord
     zenith
-    (pkgs.callPackage ../../packages/gdlauncher-carbon-beta.nix { })
+    supergfxctl-plasmoid
   ];
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-material-color
+      fcitx5-rime
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
 
   programs = {
     vscode = {

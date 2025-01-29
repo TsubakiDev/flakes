@@ -2,5 +2,7 @@
 {
   imports = [
     ./dae
+    ./supergfxctl
+    ./mihomo
   ];
 }

@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.mihomo = {
+    enable = true;
+  };
+}
