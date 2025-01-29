@@ -1,5 +1,8 @@
-{ lib, ... }:
-
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   nix.settings = {
     experimental-features = [
@@ -15,4 +18,6 @@
     dates = "daily";
     options = "--delete-older-than 1d";
   };
+
+  nix.package = pkgs.lix;
 }

@@ -9,10 +9,6 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +30,6 @@
           modules = [
             ./hosts/firefly
             home-manager.nixosModules.home-manager
-            lix-module.nixosModules.default
           ];
 
           specialArgs = {
