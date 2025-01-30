@@ -4,5 +4,6 @@
     ./dae
     ./supergfxctl
     ./mihomo
+    ./asusd
   ];
 }
