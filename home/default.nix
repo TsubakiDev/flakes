@@ -5,20 +5,22 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  home.username = "tsubaki";
-  home.homeDirectory = "/home/tsubaki";
-  home.stateVersion = "25.05";
+  home = {
+    username = "tsubaki";
+    homeDirectory = "/home/tsubaki";
+    stateVersion = "25.05";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    MOZ_USE_XINPUT2 = "1";
-    XMODIFIERS = "@im=fcitx";
-  };
+    sessionVariables = {
+      EDITOR = "nvim";
+      MOZ_USE_XINPUT2 = "1";
+      XMODIFIERS = "@im=fcitx";
+    };
 
-  home.shellAliases = {
-    updateFlake = "sudo nix flake update";
-    nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
-    r = "nixpkgs-review pr";
+    shellAliases = {
+      updateFlake = "sudo nix flake update";
+      nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
+      r = "nixpkgs-review pr";
+    };
   };
 
   home.packages = with pkgs; [
