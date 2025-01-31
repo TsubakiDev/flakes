@@ -22,29 +22,15 @@
   };
 
   home.packages = with pkgs; [
-    nix-output-monitor
-    fastfetch
-    nixfmt-rfc-style
-    bitwarden-desktop
-    yubikey-manager-qt
-    wireshark
-    vlc
-    cider-2
-    rustup
-    go
+    nix-output-monitor fastfetch nixfmt-rfc-style supergfxctl-plasmoid
+    bitwarden-desktop thunderbird yubikey-manager-qt
+    wireshark zenith yazi
+    cider-2 vlc
+    rustup go nodejs_23
     obs-studio
-    telegram-desktop
-    jetbrains.idea-community-bin
-    qq
-    wezterm
+    telegram-desktop qq discord
     gdlauncher-carbon
-    thunderbird
-    yazi
-    nodejs_23
     osu-lazer-bin
-    discord
-    zenith
-    supergfxctl-plasmoid
   ];
 
   i18n.inputMethod = {
@@ -59,6 +45,10 @@
   };
 
   programs = {
+    wezterm = {
+      enable = true;
+    };
+
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
