@@ -22,13 +22,25 @@
   };
 
   home.packages = with pkgs; [
-    nix-output-monitor fastfetch nixfmt-rfc-style supergfxctl-plasmoid
-    bitwarden-desktop thunderbird yubikey-manager-qt
-    wireshark zenith yazi
-    cider-2 vlc
-    rustup go nodejs_23
+    nix-output-monitor
+    fastfetch
+    nixfmt-rfc-style
+    supergfxctl-plasmoid
+    bitwarden-desktop
+    thunderbird
+    yubikey-manager-qt
+    wireshark
+    zenith
+    yazi
+    cider-2
+    vlc
+    rustup
+    go
+    nodejs_23
     obs-studio
-    telegram-desktop qq discord
+    telegram-desktop
+    qq
+    discord
     gdlauncher-carbon
     osu-lazer-bin
   ];
