@@ -63,6 +63,34 @@
       enable = true;
     };
 
+    plasma = {
+      enable = true;
+
+       workspace = {
+        clickItemTo = "open";
+        lookAndFeel = "org.kde.breezedark.desktop";
+        cursor = {
+          theme = "Bibata-Modern-Ice";
+          size = 32;
+        };
+        iconTheme = "Papirus-Dark";
+        wallpaper = "${NIX_PATH}/static/wallpaper/nix-wallpaper-nineish-catppuccin-macchiato.png";
+      };
+
+      hotkeys.commands."launch-wezterm" = {
+        name = "Launch Wezterm";
+        key = "Meta+Alt+K";
+        command = "wezterm";
+      };
+
+      fonts = {
+        general = {
+          family = "Maple Mono";
+          pointSize = 12;
+        };
+      };
+    };
+
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;

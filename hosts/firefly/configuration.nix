@@ -10,11 +10,12 @@ in
 {
   imports = [
     ../common
-    ../../services
+    ../../services/dae.nix
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.users.tsubaki = homeFile;
     }
+    inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
   nixpkgs.config.allowUnfree = true;

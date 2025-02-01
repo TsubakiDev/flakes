@@ -1,13 +1,16 @@
 {
+  description = "Tsubaki's nixos settings collection";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -19,7 +22,7 @@
       self,
       home-manager,
       nixpkgs,
-      lix-module,
+      plasma-manager,
       sops-nix,
       ...
     }@inputs:
