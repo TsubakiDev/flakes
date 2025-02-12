@@ -20,16 +20,8 @@
   users.users = {
     mgtown = {
       isNormalUser = true;
-      description = "Server default account";
+      description = "server's default account";
       uid = 1000;
-      packages = with pkgs; [
-      ];
-    };
-
-    tsubaki = {
-      isNormalUser = true;
-      description = "TsubakiDev's account";
-      uid = 1001;
       extraGroups = [
         "networkmanager"
         "wheel"
@@ -49,7 +41,6 @@
     enable = true;
     allowPing = false;
     allowedTCPPorts = [ 25565 ];
-    allowedUDPPorts = [ 19132 ];
   };
 
   time.timeZone = "Asia/Shanghai";
@@ -71,7 +62,7 @@
   };
 
   services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes";
+  services.openssh.settings.PermitRootLogin = "no";
   services.openssh.settings.PasswordAuthentication = true;
 
   nix.settings = {
@@ -99,6 +90,20 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  # testing
+  services.cloudflared = {
+    enable = false;
+    tunnels = {
+      "00000000-0000-0000-0000-000000000000" = {
+        credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
+        ingress = {
+          "webhook.mgtown.cn" = "http://localhost:25578";
+        };
+        default = "http_status:404";
+      };
+    };
   };
 
   system.stateVersion = "24.11";
