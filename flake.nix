@@ -31,6 +31,7 @@
 
         # Home Lab
         yggdrasil = nixpkgs.lib.nixosSystem {
+          vscode-server.nixosModules.default
           modules = [ ./hosts/yggdrasil ];
           inherit self inputs;
         }

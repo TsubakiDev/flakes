@@ -2,6 +2,7 @@
 {
   inputs = [
     ./fs.nix
+    ../../services/cloudflared
   ];
 
   boot = {
