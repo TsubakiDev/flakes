@@ -21,7 +21,7 @@
   };
 
   programs.java.enable = true;
-  programs.java.package = pkgs.zulu;
+  programs.java.package = pkgs.graalvmPackages.graalvm-ce;
 
   users.users = {
     mgtown = {
@@ -41,12 +41,6 @@
     networkmanager.enable = true;
     hostName = "mgtown";
     useDHCP = lib.mkDefault true;
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowPing = false;
-    allowedTCPPorts = [ 25565 ];
   };
 
   time.timeZone = "Asia/Shanghai";
@@ -96,20 +90,6 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-  };
-
-  # testing
-  services.cloudflared = {
-    enable = false;
-    tunnels = {
-      "00000000-0000-0000-0000-000000000000" = {
-        credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
-        ingress = {
-          "webhook.mgtown.cn" = "http://localhost:25578";
-        };
-        default = "http_status:404";
-      };
-    };
   };
 
   system.stateVersion = "24.11";

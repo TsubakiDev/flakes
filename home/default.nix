@@ -34,10 +34,9 @@
     wireshark
     zenith
     yazi
-    cider-2
+    cider
     vlc
     rustup
-    go
     nodejs_23
     obs-studio
     telegram-desktop
