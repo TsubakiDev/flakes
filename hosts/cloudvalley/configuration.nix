@@ -1,15 +1,13 @@
-{ inputs, cfg, pkg, config, ... }:
+{ cfg, pkg, config, ... }:
 {
-  inputs = [
-    ./fs.nix
-    ../../services/cloudflared
-  ];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
       efi.canTouchEfiVariables = true;
     };
 
@@ -19,30 +17,26 @@
     };
   };
 
-  # Network Settings
+  # Networking Settings
   networking = {
-    hostName = "yggdrasil";
+    hostName = "cloudvalley";
     networkmanager.enable = true;
     useDHCP = lib.mkDefault true;
-
-    firewall = {
-      enable = true;
-      allowPing = false;
-    };
   };
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    wget
+    mcdreforged
     git
-    gcc
+    zenith
+    tmux
   ];
 
   # Users
   users.users = {
     tsubaki = {
       isNormalUser = true;
-      description = "Noob coder, need cat";
+      description = "Server staff.";
       uid = 1000;
       extraGroups = [
         "networkmanager"
@@ -50,15 +44,18 @@
       ];
     };
 
-    beef = {
-      isNormalUser = true;
-      description = "Legend coder";
-      uid = 1000;
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
+    server = {
+      isNormalUser = false;
+      description = "The account that starts the server.";
+      uid = 1001;
+      extraGroups = [];
     };
+  };
+
+  # Java Settings
+  programs.java = {
+    enable = true;
+    package = pkgs.graalvm-ce;
   };
 
   # Nix Settings
@@ -76,12 +73,13 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
+      dates = "daily";
+      options = "--delete-older-than 1d";
     };
   };
 
   # The Rest
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
+  system.stateVersion = "24.11";
 }
