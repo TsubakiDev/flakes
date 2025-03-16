@@ -45,6 +45,7 @@
     osu-lazer-bin
     wezterm
     google-chrome
+    wechat-uos
   ];
 
   programs = {
