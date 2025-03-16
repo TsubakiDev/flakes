@@ -1,0 +1,48 @@
+global {
+  log_level: info
+  wan_interface: auto
+  dial_mode: domain
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+}
+node {
+  clash: 'socks5://localhost:7890'
+}
+dns {
+  upstream {
+    alidns: 'udp://dns.alidns.com:53'
+    googledns: 'tcp+udp://dns.google.com:53'
+  }
+  routing {
+    request {
+      qname(geosite:cn) -> alidns
+      fallback: googledns
+    }
+    response {
+      upstream(googledns) -> accept
+      !qname(geosite:cn) && ip(geoip:private) -> googledns
+      fallback: accept
+    }
+  }
+}
+group {
+  clash {
+    policy: fixed(0)
+  }
+}
+
+routing {
+  pname(NetworkManager) -> direct
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+
+  pname(mihomo) -> must_direct
+
+  !domain(geosite:cn) -> clash
+
+  l4proto(udp) && dport(443) -> block
+  dip(geoip:private) -> direct
+  dip(geoip:cn) -> direct
+  domain(geosite:cn) -> direct
+
+  fallback: clash
+}

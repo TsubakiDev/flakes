@@ -27,6 +27,7 @@
     fastfetch
     nixfmt-rfc-style
     supergfxctl-plasmoid
+    clash-verge-rev
     bitwarden-desktop
     thunderbird
     yubikey-manager-qt

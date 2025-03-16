@@ -41,6 +41,25 @@
           }
         ];
 
+        hyacine = mkHost "hyacine" [
+          chronara = mkHost "chronara" [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.tsubaki = import ./home/tsubaki;
+            };
+          }
+          aagl.nixosModules.default
+          {
+            nix.settings = aagl.nixConfig;
+            programs.anime-game-launcher.enable = true;
+            programs.honkers-railway-launcher.enable = true;
+          }
+        ];
+        ];
+
         mgtown = mkHost "mgtown" [];
         cloudvalley = mkHost "cloudvalley" [];
       };

@@ -8,7 +8,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "chronara";
+  networking.hostName = "hyacine";
 
   i18n.inputMethod = {
     enable = true;
