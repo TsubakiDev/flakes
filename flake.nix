@@ -42,7 +42,6 @@
         ];
 
         hyacine = mkHost "hyacine" [
-          chronara = mkHost "chronara" [
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -57,7 +56,6 @@
             programs.anime-game-launcher.enable = true;
             programs.honkers-railway-launcher.enable = true;
           }
-        ];
         ];
 
         mgtown = mkHost "mgtown" [];
