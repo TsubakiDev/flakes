@@ -1,7 +1,10 @@
 {
   pkgs,
   ...
-}:
+}: 
+let
+  gdlauncher-carbon-local = pkgs.callPackage ../packages/gdlauncher-carbon.packakge.nix { };
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -38,14 +41,13 @@
     rustup
     nodejs_23
     obs-studio
-    telegram-desktop
     qq
-    element-desktop
-    gdlauncher-carbon
+    cinny-desktop
     osu-lazer-bin
     wezterm
     google-chrome
     wechat-uos
+    gdlauncher-carbon-local
   ];
 
   programs = {

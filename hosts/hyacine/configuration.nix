@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./display.nix
-    ./sound.nix
-    ./dae
+    ../../programs/niri.program.nix
+    ../../programs/waybar.program.nix
+    ../../services/sound.service.nix
+    ../../services/dae.service.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
