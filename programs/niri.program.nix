@@ -34,17 +34,6 @@ in {
       ];
       input = {
         keyboard.xkb.layout = "us";
-        touchpad = {
-          click-method = "button-areas";
-          dwt = true;
-          dwtp = true;
-          natural-scroll = true;
-          scroll-method = "two-finger";
-          tap = true;
-          tap-button-map = "left-right-middle";
-          accel-profile = "adaptive";
-          # scroll-factor = 0.1;
-        };
         focus-follows-mouse.enable = true;
         warp-mouse-to-focus = true;
         workspace-auto-back-and-forth = true;
