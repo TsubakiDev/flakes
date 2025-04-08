@@ -47,9 +47,10 @@ in
     cinny-desktop
     osu-lazer-bin
     wezterm
-    google-chrome
     wechat-uos
     gdlauncher-carbon-local
+    obsidian
+    inputs.zen-browser.packages."${system}".specific
 
     maple-mono.truetype
     maple-mono.NF-unhinted
