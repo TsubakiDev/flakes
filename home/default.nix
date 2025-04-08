@@ -25,6 +25,8 @@ in
     };
   };
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     nix-output-monitor
     fastfetch
@@ -48,6 +50,10 @@ in
     google-chrome
     wechat-uos
     gdlauncher-carbon-local
+
+    maple-mono.truetype
+    maple-mono.NF-unhinted
+    maple-mono.NF-CN-unhinted
   ];
 
   programs = {
@@ -63,6 +69,7 @@ in
         vim-nix
         lazy-nvim
       ];
+      
       package = pkgs.neovim-nightly;
 
       extraLuaConfig = ''
