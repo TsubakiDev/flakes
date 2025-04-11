@@ -79,6 +79,12 @@
     auto-optimise-store = true;
   };
 
+  networking.firewall = {
+     enable = true;
+     allowPing = false;
+     allowedTCPPorts = [ 25565 ];
+   };
+
   nix.gc = {
     automatic = true;
     dates = "daily";
