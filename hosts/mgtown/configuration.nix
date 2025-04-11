@@ -15,7 +15,7 @@
       };
       grub = {
         efiSupport = true;
-        device = "nodev";
+        device = "/dev/nvme0n1p1";
       };
     };
   };
