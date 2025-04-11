@@ -86,11 +86,5 @@
     screen
   ];
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   system.stateVersion = "24.11";
 }
