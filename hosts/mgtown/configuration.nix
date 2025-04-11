@@ -20,6 +20,11 @@
     };
   };
 
+  services.mysql = {
+     enable = true;
+     package = pkgs.mariadb;
+  };
+
   programs.java.enable = true;
   programs.java.package = pkgs.graalvmPackages.graalvm-ce;
 
