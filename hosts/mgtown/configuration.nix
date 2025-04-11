@@ -13,10 +13,7 @@
       efi = {
         canTouchEfiVariables = true;
       };
-      grub = {
-        efiSupport = true;
-        device = "/dev/nvme0n1p1";
-      };
+      systemd-boot.enable = true;
     };
   };
 
