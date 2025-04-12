@@ -62,7 +62,7 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+      substituters = [ "https://mirror.iscas.ac.cn/nix-channels/store" ];
       auto-optimise-store = true;
     };
 

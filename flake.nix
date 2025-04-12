@@ -44,7 +44,6 @@
         ];
 
         mgtown = mkHost "mgtown" [];
-        cloudvalley = mkHost "cloudvalley" [];
       };
     };
 }

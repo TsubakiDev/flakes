@@ -2,9 +2,6 @@
   pkgs,
   ...
 }: 
-let
-  gdlauncher-carbon-local = pkgs.callPackage ../packages/gdlauncher-carbon.packakge.nix { };
-in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -31,7 +28,6 @@ in
     nix-output-monitor
     fastfetch
     nixfmt-rfc-style
-    supergfxctl-plasmoid
     clash-verge-rev
     bitwarden-desktop
     thunderbird
@@ -41,16 +37,16 @@ in
     cider
     vlc
     rustup
-    nodejs_23
     obs-studio
     qq
     cinny-desktop
     osu-lazer-bin
     wezterm
     wechat-uos
-    gdlauncher-carbon-local
+    gdlauncher-carbon
     obsidian
     inputs.zen-browser.packages."${system}".specific
+    wineWowPackages.stable
 
     maple-mono.truetype
     maple-mono.NF-unhinted

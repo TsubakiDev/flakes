@@ -75,7 +75,7 @@
       "nix-command"
       "flakes"
     ];
-    substituters = lib.mkForce [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+    substituters = lib.mkForce [ "https://mirror.iscas.ac.cn/nix-channels/store" ];
     auto-optimise-store = true;
   };
 
