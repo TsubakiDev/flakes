@@ -1,15 +1,23 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../programs/niri.program.nix
-    ../../programs/waybar.program.nix
     ../../services/sound.service.nix
     ../../services/dae.service.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
+  boot = {
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
+  };
+
   networking.hostName = "hyacine";
+  networking.networkmanager.enable = true;
 
   i18n.inputMethod = {
     enable = true;
@@ -23,6 +31,8 @@
   };
 
   time.timeZone = "Asia/Shanghai";
+
+  powerManagement.cpuFreqGovernor = "performance";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -48,6 +58,8 @@
     ];
     shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     wget

@@ -31,7 +31,7 @@
     clash-verge-rev
     bitwarden-desktop
     thunderbird
-    yubikey-manager-qt
+    yubioath-flutter
     zenith
     yazi
     cider
@@ -44,7 +44,7 @@
     wezterm
     wechat-uos
     gdlauncher-carbon
-    obsidian
+    vscode-fhs
     inputs.zen-browser.packages."${system}".specific
     wineWowPackages.stable
 
@@ -54,39 +54,9 @@
   ];
 
   programs = {
-    vscode = {
-      enable = true;
-      package = pkgs.vscode.fhs;
-    };
-
     neovim = {
       enable = true;
-      
-      plugins = with pkgs.vimPlugins; [ 
-        vim-nix
-        lazy-nvim
-      ];
-      
-      package = pkgs.neovim-nightly;
-
-      extraLuaConfig = ''
-          vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
-          require("lazy").setup({
-            performance = {
-              reset_packpath = false,
-              rtp = {
-                 reset = false,
-                }
-              },
-            dev = {
-              path = "${pkgs.vimUtils.packDir config.home-manager.users.tsubaki.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-            },
-            install = {
-              -- Safeguard in case we forget to install a plugin with Nix
-              missing = false,
-            },
-          })
-        '';
+      plugins = with pkgs.vimPlugins; [ vim-nix ];
     };
 
     git = {

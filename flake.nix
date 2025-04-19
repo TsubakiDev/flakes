@@ -32,13 +32,12 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.tsubaki = import ./home/tsubaki;
+              users.tsubaki = import ./users/tsubaki;
             };
           }
           aagl.nixosModules.default
           {
             nix.settings = aagl.nixConfig;
-            programs.anime-game-launcher.enable = true;
             programs.honkers-railway-launcher.enable = true;
           }
         ];

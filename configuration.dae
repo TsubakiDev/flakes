@@ -6,7 +6,7 @@ global {
   auto_config_kernel_parameter: true
 }
 node {
-  clash: 'socks5://localhost:7890'
+  clash: 'socks5://localhost:7897'
 }
 dns {
   upstream {

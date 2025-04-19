@@ -93,7 +93,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    fastfetch
     screen
   ];
 
