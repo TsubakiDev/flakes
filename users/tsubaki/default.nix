@@ -28,12 +28,11 @@
     nix-output-monitor
     fastfetch
     nixfmt-rfc-style
-    clash-verge-rev
+    clash-nyanpasu
     bitwarden-desktop
     thunderbird
     yubioath-flutter
     zenith
-    yazi
     cider
     vlc
     rustup
