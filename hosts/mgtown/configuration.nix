@@ -38,14 +38,22 @@
         "wheel"
       ];
       packages = with pkgs; [
+        screen
       ];
     };
   };
+
+  programs.git.enable = true;
 
   networking = {
     networkmanager.enable = true;
     hostName = "mgtown";
     useDHCP = lib.mkDefault true;
+    firewall = {
+     enable = true;
+     allowPing = false;
+     allowedTCPPorts = [ 25565 ];
+   };
   };
 
   time.timeZone = "Asia/Shanghai";
@@ -79,22 +87,11 @@
     auto-optimise-store = true;
   };
 
-  networking.firewall = {
-     enable = true;
-     allowPing = false;
-     allowedTCPPorts = [ 25565 ];
-   };
-
   nix.gc = {
     automatic = true;
     dates = "daily";
     options = "--delete-older-than 1d";
   };
-
-  environment.systemPackages = with pkgs; [
-    git
-    screen
-  ];
 
   system.stateVersion = "24.11";
 }
