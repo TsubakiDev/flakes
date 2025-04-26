@@ -28,7 +28,6 @@
     nix-output-monitor
     fastfetch
     nixfmt-rfc-style
-    clash-nyanpasu
     bitwarden-desktop
     thunderbird
     yubioath-flutter

@@ -74,7 +74,10 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ "https://mirror.iscas.ac.cn/nix-channels/store" ];
+      substituters = [ 
+        "https://mirror.iscas.ac.cn/nix-channels/store"
+        "https://cache.nixos.org"
+      ];
       auto-optimise-store = true;
     };
 
