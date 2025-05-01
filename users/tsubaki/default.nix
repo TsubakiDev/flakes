@@ -3,8 +3,6 @@
   ...
 }: 
 {
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     username = "tsubaki";
     homeDirectory = "/home/tsubaki";
@@ -38,12 +36,16 @@
     obs-studio
     qq
     cinny-desktop
+    telegram-desktop
+    discord
     osu-lazer-bin
+    android-studio
     wezterm
     wechat-uos
     gdlauncher-carbon
     vscode-fhs
-    inputs.zen-browser.packages."${system}".specific
+    firefox
+    steam
     wineWowPackages.stable
 
     maple-mono.truetype

@@ -2,7 +2,7 @@
 {
   imports = [
     ../../services/sound.service.nix
-    ../../services/dae.service.nix
+    ../../services/plasma.service.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -11,8 +11,11 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        device = "/dev/nvme0n1";
+        useOSProber = true;
+      };
     };
   };
 
