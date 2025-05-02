@@ -38,6 +38,7 @@
     cinny-desktop
     telegram-desktop
     discord
+    graalvmPackages.graalvm-ce
     osu-lazer-bin
     android-studio
     wezterm
@@ -46,6 +47,7 @@
     vscode-fhs
     firefox
     steam
+    jetbrains.idea-community-bin
     wineWowPackages.stable
 
     maple-mono.truetype
