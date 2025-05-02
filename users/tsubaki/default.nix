@@ -15,7 +15,7 @@
     };
 
     shellAliases = {
-      updateFlake = "sudo nix flake update";
+      uflake = "sudo nix flake update";
       nswitch = "sudo bash -c 'nixos-rebuild switch |& nom'";
     };
   };
@@ -23,33 +23,47 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    # Utilities
     nix-output-monitor
-    fastfetch
     nixfmt-rfc-style
-    bitwarden-desktop
-    thunderbird
-    yubioath-flutter
+    fastfetch
     zenith
-    cider
-    vlc
+
+    # Development
     rustup
-    obs-studio
-    qq
-    cinny-desktop
+    graalvmPackages.graalvm-ce
+    android-studio
+    vscode-fhs
+    jetbrains.idea-community-bin
+
+    # Internet Messaging
+    thunderbird
     telegram-desktop
     discord
-    graalvmPackages.graalvm-ce
-    osu-lazer-bin
-    android-studio
-    wezterm
     wechat-uos
-    gdlauncher-carbon
-    vscode-fhs
-    firefox
+    qq
+
+    # Media
+    cider
+    vlc
+    obs-studio
+    osu-lazer-bin
+
+    # Password Management
+    bitwarden-desktop
+    yubioath-flutter
+
+    # Gaming
     steam
-    jetbrains.idea-community-bin
+    gdlauncher-carbon
+    osu-lazer-bin
+
+    # Others
+    wezterm
+    firefox
     wineWowPackages.stable
 
+    # Fonts
     maple-mono.truetype
     maple-mono.NF-unhinted
     maple-mono.NF-CN-unhinted

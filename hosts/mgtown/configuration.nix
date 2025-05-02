@@ -21,8 +21,8 @@
   };
 
   services.mysql = {
-     enable = true;
-     package = pkgs.mariadb;
+    enable = true;
+    package = pkgs.mariadb;
   };
 
   programs.java.enable = true;
@@ -50,10 +50,10 @@
     hostName = "mgtown";
     useDHCP = lib.mkDefault true;
     firewall = {
-     enable = true;
-     allowPing = false;
-     allowedTCPPorts = [ 25565 ];
-   };
+      enable = true;
+      allowPing = false;
+      allowedTCPPorts = [ 25565 ];
+    };
   };
 
   time.timeZone = "Asia/Shanghai";

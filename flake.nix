@@ -13,33 +13,62 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, flake-utils, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      aagl,
+      flake-utils,
+      ...
+    }@inputs:
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (system: {
-    }) // {
-      nixosConfigurations = let
-        mkHost = hostName: extraModules: nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [ (./hosts + "/${hostName}") ] ++ extraModules;
-          specialArgs = { inherit inputs; };
-        };
-      in {
-        hyacine = mkHost "hyacine" [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.tsubaki = import ./users/tsubaki;
+    })
+    // {
+      nixosConfigurations =
+        let
+          mkHost =
+            hostName: extraModules:
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = [ (./hosts + "/${hostName}") ] ++ extraModules;
+              specialArgs = { inherit inputs; };
             };
-          }
-          aagl.nixosModules.default
-          {
-            nix.settings = aagl.nixConfig;
-            programs.honkers-railway-launcher.enable = true;
-          }
-        ];
+        in
+        {
+          hyacine = mkHost "hyacine" [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.tsubaki = import ./users/tsubaki;
+              };
+            }
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig;
+              programs.honkers-railway-launcher.enable = true;
+            }
+          ];
 
-        mgtown = mkHost "mgtown" [];
-      };
+          castorice = mkHost "castorice" [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.tsubaki = import ./users/tsubaki;
+              };
+            }
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig;
+              programs.honkers-railway-launcher.enable = true;
+            }
+          ];
+
+          mgtown = mkHost "mgtown" [ ];
+        };
     };
 }
