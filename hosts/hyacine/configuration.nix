@@ -20,6 +20,24 @@
   };
 
   networking.hostName = "hyacine";
+  networking = {
+    interfaces.enp11s0 = {
+      useDHCP = false;
+      ipv4.addresses = [
+        {
+          address = "192.168.1.99";
+          prefixLength = 24;
+        },
+        {
+          address = "10.75.34.167";
+          prefixLength = 24;
+          gateway = "10.75.34.254";
+        }
+      ];
+    };
+    defaultGateway = "192.168.1.1";
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  };
   networking.networkmanager.enable = true;
 
   i18n.inputMethod = {
