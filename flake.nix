@@ -11,9 +11,6 @@
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
-
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -25,7 +22,7 @@
       flake-utils,
       ...
     }@inputs:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: {
+    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system: {
     })
     // {
       nixosConfigurations =
@@ -55,25 +52,7 @@
             }
           ];
 
-          nixOnDroidConfigurations = {
-            castorice = nix-on-droid.lib.nixOnDroidConfiguration {
-              system = "aarch64-linux";
-              modules = [
-                ./hosts/castorice
-                home-manager.darwinModules.home-manager
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.tsubaki = import ./users/tsubaki/android.nix;
-                  };
-                }
-              ];
-              specialArgs = { inherit inputs; };
-              pkgs = import nixpkgs { system = "aarch64-linux"; };
-            };
-          };
-
+          castorice = mkHost "castorice" [ ];
           mgtown = mkHost "mgtown" [ ];
         };
     };

@@ -5,16 +5,10 @@
   ...
 }:
 {
-  imports = [
-    ../../services/sound.service.nix
-    ../../services/plasma.service.nix
-    ../../services/dae.service.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       grub = {
@@ -25,37 +19,12 @@
     };
   };
 
-  networking.hostName = "hyacine";
+  networking.hostName = "castorice";
   networking.networkmanager.enable = true;
-
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-material-color
-      fcitx5-rime
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
-  };
 
   time.timeZone = "Asia/Shanghai";
 
-  powerManagement.cpuFreqGovernor = "performance";
-
   i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   users.users.tsubaki = {
     isNormalUser = true;
@@ -66,6 +35,10 @@
       "wheel"
     ];
     shell = pkgs.fish;
+    packages = with pkgs; [
+      rustup
+    ];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPZlemAB/8uNel1nJf4UQDdsv+O9vzMI3Ttjk4R7srfo tsubaki@termius" ];
   };
 
   programs.fish.enable = true;
@@ -75,6 +48,12 @@
     gcc
   ];
 
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "no";
+    settings.PasswordAuthentication = true;
+  };
+
   nix = {
     package = pkgs.lix;
 
@@ -83,7 +62,6 @@
         "nix-command"
         "flakes"
       ];
-      substituters = lib.mkForce [ "https://mirror.iscas.ac.cn/nix-channels/store" ];
       auto-optimise-store = true;
     };
 
