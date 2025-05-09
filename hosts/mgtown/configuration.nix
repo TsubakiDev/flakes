@@ -39,6 +39,8 @@
       ];
       packages = with pkgs; [
         screen
+        wget
+        zenith
       ];
     };
   };
