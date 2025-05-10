@@ -11,6 +11,7 @@
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       home-manager,
       aagl,
       flake-utils,
+      vscode-server,
       ...
     }@inputs:
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (system: {
@@ -52,7 +54,13 @@
             }
           ];
 
-          castorice = mkHost "castorice" [ ];
+          castorice = mkHost "castorice" [
+            vscode-server.nixosModules.default
+            ({ config, pkgs, ... }: {
+              services.vscode-server.enable = true;
+            })
+          ];
+          
           mgtown = mkHost "mgtown" [ ];
         };
     };
