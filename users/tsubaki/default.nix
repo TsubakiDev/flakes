@@ -32,7 +32,7 @@
 
     # Development
     rustup
-    graalvmPackages.graalvm-ce
+    #graalvmPackages.graalvm-ce
     android-studio
     vscode-fhs
     jetbrains.idea-community-bin
@@ -63,6 +63,7 @@
     wezterm
     firefox
     wineWowPackages.stable
+    adoptopenjdk-icedtea-web
 
     # Fonts
     maple-mono.truetype

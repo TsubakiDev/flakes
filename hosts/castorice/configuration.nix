@@ -37,13 +37,16 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       rustup
+      fastfetch
+      zenith
     ];
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPZlemAB/8uNel1nJf4UQDdsv+O9vzMI3Ttjk4R7srfo tsubaki@termius" ];
+    #openssh.authorizedKeys.keys = [ "" ];
   };
 
   programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
+    git
     wget
     gcc
   ];
