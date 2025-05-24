@@ -54,14 +54,6 @@
             }
           ];
 
-          castorice = mkHost "castorice" [
-            vscode-server.nixosModules.default
-            ({ config, pkgs, ... }: {
-              services.vscode-server.enable = true;
-              services.vscode-server.enableFHS = true;
-            })
-          ];
-
           mgtown = mkHost "mgtown" [ ];
         };
     };

@@ -32,7 +32,7 @@
 
     # Development
     rustup
-    #graalvmPackages.graalvm-ce
+    graalvmPackages.graalvm-ce
     android-studio
     vscode-fhs
     jetbrains.idea-community-bin
@@ -66,9 +66,8 @@
     adoptopenjdk-icedtea-web
 
     # Fonts
-    maple-mono.truetype
-    maple-mono.NF-unhinted
-    maple-mono.NF-CN-unhinted
+    iosevka
+    noto-fonts-cjk-sans
   ];
 
   programs = {
