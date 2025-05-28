@@ -70,10 +70,6 @@
     noto-fonts-cjk-sans
   ];
 
-  programs.plasma = {
-    enable = true;
-  };
-
   programs.git = {
     enable = true;
       userName = "TsubakiDev";
@@ -87,5 +83,4 @@
 
   programs.fish.enable = true;
   programs.home-manager.enable = true;
-  programs.gnupg.agent.enable = true;
 }

@@ -6,13 +6,15 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     loader = {
-      grub = {
-        enable = true;
-        device = "/dev/nvme0n1";
-        useOSProber = true;
-      };
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
   };
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
 
   networking.hostName = "hyacine";
   # networking = {
@@ -83,6 +85,7 @@
   };
 
   programs.fish.enable = true;
+  programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
     wget

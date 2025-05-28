@@ -10,10 +10,6 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
-    plasma-manager.url = "github:nix-community/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager.inputs.home-manager.follows = "home-manager";
-
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -24,7 +20,6 @@
       home-manager,
       aagl,
       flake-utils,
-      plasma-manager,
       ...
     }@inputs:
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (system: {
@@ -42,8 +37,6 @@
         in
         {
           hyacine = mkHost "hyacine" [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
-
             home-manager.nixosModules.home-manager
             {
               home-manager = {
