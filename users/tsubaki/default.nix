@@ -63,31 +63,29 @@
     wezterm
     firefox
     wineWowPackages.stable
-    adoptopenjdk-icedtea-web
+    zola
 
     # Fonts
     iosevka
     noto-fonts-cjk-sans
   ];
 
-  programs = {
-    neovim = {
-      enable = true;
-      plugins = with pkgs.vimPlugins; [ vim-nix ];
-    };
+  programs.plasma = {
+    enable = true;
+  };
 
-    git = {
-      enable = true;
+  programs.git = {
+    enable = true;
       userName = "TsubakiDev";
       userEmail = "i@tsubaki.dev";
-    };
-
-    fish = {
-      enable = true;
-    };
-
-    home-manager = {
-      enable = true;
-    };
   };
+
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [ vim-nix ];
+  };
+
+  programs.fish.enable = true;
+  programs.home-manager.enable = true;
+  programs.gnupg.agent.enable = true;
 }

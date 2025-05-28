@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ../../services/sound.service.nix
-    ../../services/plasma.service.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
 
   boot = {
@@ -38,6 +33,14 @@
   #   nameservers = [ "8.8.8.8" "8.8.4.4" ];
   # };
   networking.networkmanager.enable = true;
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   i18n.inputMethod = {
     enable = true;
