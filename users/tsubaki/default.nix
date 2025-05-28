@@ -39,12 +39,10 @@
     # Internet Messaging
     thunderbird
     telegram-desktop
-    discord
     wechat-uos
     qq
 
     # Media
-    cider
     vlc
     obs-studio
     osu-lazer-bin
