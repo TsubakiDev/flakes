@@ -33,7 +33,6 @@
     # Development
     rustup
     graalvmPackages.graalvm-ce
-    android-studio
     vscode-fhs
     jetbrains.idea-community-bin
 
@@ -72,8 +71,12 @@
 
   programs.git = {
     enable = true;
-      userName = "TsubakiDev";
-      userEmail = "i@tsubaki.dev";
+    userName = "TsubakiDev";
+    userEmail = "i@tsubaki.dev";
+    signing = {
+      key = "C50CA983F44B4FA3";
+      signByDefault = true;
+    };
   };
 
   programs.neovim = {
