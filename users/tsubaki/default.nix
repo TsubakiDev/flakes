@@ -57,7 +57,6 @@
     osu-lazer-bin
 
     # Others
-    wezterm
     firefox
     wineWowPackages.stable
     zola
