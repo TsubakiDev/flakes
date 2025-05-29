@@ -60,6 +60,7 @@
     firefox
     wineWowPackages.stable
     zola
+    (pkgs.callPackages ../../packages/nission-center.nix { })
 
     # Fonts
     iosevka
