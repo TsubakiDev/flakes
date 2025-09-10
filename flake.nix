@@ -52,6 +52,8 @@
             }
           ];
 
+          t-station-laptop = mkHost "t-station-laptop" [ ];
+
           mgtown = mkHost "mgtown" [ ];
         };
     };
