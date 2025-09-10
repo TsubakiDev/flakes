@@ -22,7 +22,7 @@
     zola
     nix-output-monitor
     nixfmt-rfc-style
-    graalvmPackages.graalvm-ce
+    zulu
   ];
 
   nix = {
