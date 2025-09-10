@@ -28,7 +28,6 @@
     nixfmt-rfc-style
     fastfetch
     zenith
-    rustdesk-flutter
 
     # Development
     rustup

@@ -12,6 +12,9 @@
     gcc
     ollama-cuda
     zola
+    nix-output-monitor
+    nixfmt-rfc-style
+    graalvmPackages.graalvm-ce
   ];
 
   nix = {
