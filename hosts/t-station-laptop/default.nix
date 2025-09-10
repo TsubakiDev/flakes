@@ -14,7 +14,6 @@
     wget
     rustup
     zenith
-    nvtop
     fastfetch
     gcc
     ollama-cuda
