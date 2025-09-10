@@ -7,6 +7,8 @@
   wsl.enable = true;
   wsl.defaultUser = "tsubaki";
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.fish.enable = true;
   programs.gnupg.agent.enable = true;
 
