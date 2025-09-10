@@ -1,5 +1,12 @@
 { pkgs, ... }:
 {
+  imports = [
+    <nixos-wsl/modules>
+  ];
+
+  wsl.enable = true;
+  wsl.defaultUser = "tsubaki";
+
   programs.fish.enable = true;
   programs.gnupg.agent.enable = true;
 
