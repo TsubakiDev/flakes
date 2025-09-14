@@ -19,6 +19,7 @@
     rustup
     zenith
     fastfetch
+    git
     gcc
     ollama-cuda
     zola
