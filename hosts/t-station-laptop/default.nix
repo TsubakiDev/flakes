@@ -7,6 +7,8 @@
   wsl.enable = true;
   wsl.defaultUser = "tsubaki";
 
+  networking.hostName = "t-station-laptop";
+
   nixpkgs.config.allowUnfree = true;
 
   programs.fish.enable = true;
